@@ -1,7 +1,6 @@
 package com.spring.MVC.Schedule_Management.service.Implements;
 
-
-import com.sm.student.Service.RoomService;
+import com.spring.MVC.Schedule_Management.service.RoomService;
 import org.springframework.stereotype.Service;
 
 @Service
