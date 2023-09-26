@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>course</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+
+</head>
+<body>
+
+<header>
+
+
+    <div style="height: 100px;background-color: blue;background-size: cover;padding-top: 25px;">
+        <div class="header  d-flex justify-content-center" style="font-weight: bold;">
+            <H2 class="text-light ">Northern University Bangladesh</H2>
+        </div>
+    </div>
+</header>
+
+
+<div class=" justify-content-end">
+    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: indigo;">
+        <a class="navbar-brand" href="#">Schedule Management System</a>
+        <button class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/index/index}">Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/student/student}">Students</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/teachers/teachers}">Teachers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/course/addcourse}"> Add Courses</a>
+                </li>
+
+
+            </ul>
+        </div>
+    </nav>
+</div>
+<br/>
+<br/>
+<div class="container-fluid d-flex justify-content-center ">
+    <div class="col-sm-8" tex-align = "center">
+        <div class="panel-body" text-align = "center" >
+            <table class="table table-hover">
+                <thead class="thead bg-primary text-light">
+                <tr>
+                    <th>Course ID</th>
+                    <th>Course Name</th>
+                    <th>Course Code</th>
+                    <th>edit</th>
+                    <th>delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr  th:each="course : ${courseList}">
+                    <td th:text="${course.id}">Course ID</td>
+                    <td th:text="${course.courseName}">Course Name</td>
+                    <td th:text="${course.courseCode}">Course code</td>
+
+
+                    <td>
+                      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit"><a th:href="@{'/course/course/edit/' + ${course.id}}">Edit</a></button>
+                    </td>
+                    <td>
+                        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit"><a th:href="@{'/course/course/delete/' + ${course.id}}">Delete</a></button>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    </div>
+
+<div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

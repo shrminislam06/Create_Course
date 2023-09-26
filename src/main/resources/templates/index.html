@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>index</title>
+    <link rel="stylesheet" th:href="@{/img}">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+
+
+        <div style="height: 100px;background-color: blue;background-size: cover;padding-top: 25px;">
+            <div class="header  d-flex justify-content-center" style="font-weight: bold;">
+                <H2 class="text-light ">Northern University Bangladesh</H2>
+            </div>
+        </div>
+    </header>
+    <div class=" justify-content-end">
+        <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: indigo;">
+            <a class="navbar-brand" href="#">Schedule Management System</a>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" th:href="@{/index/index}">index <span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/teachers/teachers}">Teachers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/course/course}">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/section/section}">Section</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/index/enrolledteacher}">CourseTeacher</a>
+                    </li>
+
+
+
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div
+            id="intro-example"
+            class=" background p-5 text-center bg-image"
+            style="background-image: url('/img/bg.jpeg');background-size: cover"
+
+    >
+        <div class="mask" style="background-color: rgba(68,82,247,0.8);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-light">
+                    <h1 class="mb-3">NORTHERN UNIVERSITY BANGLADESH</h1>
+                    <h5 class="mb-4">Knowledge for Innovation</h5>
+                    <a
+                            class="btn btn-outline-light btn-lg m-2"
+                            href="http://localhost:8086"
+                            role="button"
+                            rel="nofollow"
+                            target="_blank"
+                    >Start </a
+                    >
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

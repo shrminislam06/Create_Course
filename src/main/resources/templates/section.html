@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>course</title>
+    <link rel="stylesheet" th:href="@{ssss}">
+    <link rel="stylesheet" th:href="@{/js/script.js}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+
+</head>
+<body>
+
+<header>
+
+
+    <div style="height: 100px;background-color: blue;background-size: cover;padding-top: 25px;">
+        <div class="header  d-flex justify-content-center" style="font-weight: bold;">
+            <H2 class="text-light ">Northern University Bangladesh</H2>
+        </div>
+    </div>
+</header>
+
+
+<div class=" justify-content-end">
+    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: indigo;">
+        <a class="navbar-brand" href="#">Schedule Management System</a>
+        <button class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/index/index}">Home </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/section/section}">Sections<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/section/addsection}"> Add Section</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</div>
+<br/>
+<br/>
+<div class="container-fluid d-flex justify-content-center ">
+    <div class="col-sm-8" tex-align = "center">
+        <div class="panel-body" text-align = "center" >
+            <table class="table table-hover">
+                <thead class="thead bg-primary text-light">
+                <tr>
+                    <th>ID</th>
+                    <th>section Name</th>
+                    <th>edit</th>
+                    <th>delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr  th:each="section : ${sectionList}">
+                    <td th:text="${section.sectionId}"> ID</td>
+                    <td th:text="${section.sectionName}">section Name</td>
+                    <td>
+                            <a th:href="@{'/section/edit/' + ${section.sectionId}}"
+                                class="btn btn-outline-warning my-sm-0"
+                                role="button"
+                        >Edit </a>
+
+                    </td>
+                    <td>
+                        <a th:href="@{'/section/delete/' + ${section.sectionId}}"
+                           class="btn btn-outline-danger my-2 my-sm-0"
+                           role="button"
+                        >Delete </a>
+
+
+                    </td>
+
+                </tr>
+
+                </tbody>
+            </table>
+                <a class="btn btn-primary btn-lg btn-block"
+                   th:href="@{/section/addsection}"
+                   role="button"
+                >Add Section</a>
+        </div>
+    </div>
+
+</div>
+
+<div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

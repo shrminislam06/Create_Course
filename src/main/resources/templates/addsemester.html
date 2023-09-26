@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>course</title>
+    <link rel="stylesheet" th:href="@{ssss}">
+    <link rel="stylesheet" th:href="@{/js/script.js}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+
+</head>
+<body>
+<header>
+
+
+    <div style="height: 100px;background-color: blue;background-size: cover;padding-top: 25px;">
+        <div class="header  d-flex justify-content-center" style="font-weight: bold;">
+            <H2 class="text-light ">Northern University Bangladesh</H2>
+        </div>
+    </div>
+</header>
+
+
+<div class=" justify-content-end">
+    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: indigo;">
+        <a class="navbar-brand" href="#">Schedule Management System</a>
+        <button class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/index/index}">Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/course/course}">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/teachers/teachers}">Teachers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/semester/semester}">Students</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/semester/addsemester}"> Add Semester<span class="sr-only">(current)</span></a>
+                </li>
+
+
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="col-sm-0">
+    <form action="#" th:action="@{/semester/submit}" th:object="${semester}" method="post">
+        <div class="container justify-content-center " style="background-color: lavender;height:60vh;width:90vh;margin-top: 50px">
+
+            <input type="hidden" th:field="*{semesterId}">
+
+            <div class="form-group row" style="justify-content: center">
+                <div class="col-sm-30">
+                    <input type="text" th:class="form-control" id="input1" th:field="*{semesterName}" class="form-control" placeholder="semesterName" />
+                </div>
+            </div>
+
+            <div class="form-group row" style="justify-content: center">
+                <div class="col-sm-30">
+                    <input type="text" th:class="form-control" id="input" th:field="*{year}" class="form-control" placeholder="year" />
+                </div>
+            </div>
+
+
+            <div class="form-group row" style="justify-content: center">
+                <div class="col-sm-20">
+                    <select th:field="*{courseIds}" id="courseIds" class="form-control" multiple>
+                        <option th:each="course : ${courseList}"
+                                th:value="${course.id}"
+                                th:text="${course.courseName}">
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row" style="justify-content: center">
+                <div class="col-sm-20">
+                    <button type="submit" class="btn btn-info btn-lg btn-block">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
